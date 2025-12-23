@@ -36,9 +36,9 @@ To run locally:
 3. Open `index.html` in a browser or use Live Server
 
 ## Contact
-Email: your@email.com  
-GitHub: https://github.com/yourusername  
-LinkedIn: add when ready
+Email: onyejiekwe18@gmail.com  
+GitHub: https://github.com/DMVDXN  
+LinkedIn: [add when ready](https://www.linkedin.com/in/daniel-onyejiekwe-44549924a/)
 
 ## License
 This project is open source and available for personal and educational use.
