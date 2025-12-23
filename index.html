@@ -1,25 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daniel Onyejiekwe</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Daniel Onyejiekwe - Computer Science student and software developer. Portfolio featuring web, game, and AI projects." />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
 
-  <header>
-    <h1>Daniel Onyejiekwe</h1>
-    <p>Computer Science Student | Software Developer</p>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">DO</div>
+        <div class="brand-text">
+          <div class="name">Daniel Onyejiekwe</div>
+          <div class="role">Computer Science Student | Software Developer</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme">
+        Theme
+      </button>
+    </div>
   </header>
 
-  <section>
-    <h2>About Me</h2>
-    <p>
-      I am a Computer Science student and software developer with experience building
-      full stack web applications, interactive games, and user focused digital experiences.
-    </p>
-  </section>
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1>Building clean, practical software.</h1>
+          <p>
+            I build web applications, interactive experiences, and project driven systems.
+            This site highlights my work, technical skills, and what I am currently learning.
+          </p>
 
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn" href="assets/Daniel_Onyejiekwe_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+          </div>
+
+          <div class="quick-links">
+            <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com/in/yourlinkedin" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="mailto:your@email.com">Email</a>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-label="Highlights">
+          <div class="stat">
+            <div class="stat-number">3+</div>
+            <div class="stat-label">Project areas</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">Web</div>
+            <div class="stat-label">Full stack and UI</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">Unity</div>
+            <div class="stat-label">Game and XR work</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">AI</div>
+            <div class="stat-label">Practical integrations</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About</h2>
+        <p class="lead">
+          I am a Computer Science student and software developer with experience building full stack web applications,
+          interactive games, and user focused digital experiences. I enjoy turning ideas into functional systems
+          and improving them through iteration.
+        </p>
+
+        <div class="about-grid">
+          <div class="card">
+            <h3>What I focus on</h3>
+            <ul class="list">
+              <li>Clean structure and readable code</li>
+              <li>Real projects that work end to end</li>
+              <li>User experience and performance</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>What I am building</h3>
+            <ul class="list">
+              <li>StepX: online sneaker store with account features</li>
+              <li>Unity projects: interactive and narrative systems</li>
+              <li>AI finance assistant: coaching and insights workflows</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>Projects</h2>
+          <p>Selected work. Each project includes a short summary and links.</p>
+        </div>
+
+        <div class="grid">
+          <article class="project card">
+            <div class="project-top">
+              <h3>StepX Sneaker Store</h3>
+              <span class="tag">Web App</span>
+            </div>
+            <p>
+              E commerce style site with login, products, favorites, and cart workflows. Built to practice real CRUD,
+              sessions, and database driven UI.
+            </p>
+            <ul class="chips">
+              <li>PHP</li>
+              <li>MySQL</li>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+            </ul>
+            <div class="links">
+              <a href="https://github.com/yourusername/stepx" target="_blank" rel="noopener">Repo</a>
+              <a href="#" target="_blank" rel="noopener">Demo</a>
+            </div>
+          </article>
+
+          <article class="project card">
+            <div class="project-top">
+              <h3>Unity Game Projects</h3>
+              <span class="tag">Game Dev</span>
+            </div>
+            <p>
+              Multiple Unity projects exploring gameplay loops, UI, collectibles, scoring, and narrative interactions.
+              Focus on clean scripts and inspector friendly setup.
+            </p>
+            <ul class="chips">
+              <li>Unity</li>
+              <li>C#</li>
+              <li>UI</li>
+              <li>Gameplay</li>
+            </ul>
+            <div class="links">
+              <a href="https://github.com/yourusername" target="_blank" rel="noopener">Repos</a>
+              <a href="#" target="_blank" rel="noopener">Video</a>
+            </div>
+          </article>
+
+          <article class="project card">
+            <div class="project-top">
+              <h3>AI Powered Financial Assistance</h3>
+              <span class="tag">AI</span>
+            </div>
+            <p>
+              Concept and prototype work for an AI guided finance assistant that supports budgets, planning, and insights
+              for different user types.
+            </p>
+            <ul class="chips">
+              <li>Mobile</li>
+              <li>Firebase</li>
+              <li>AI APIs</li>
+              <li>Analytics</li>
+            </ul>
+            <div class="links">
+              <a href="https://github.com/yourusername" target="_blank" rel="noopener">Repo</a>
+              <a href="#" target="_blank" rel="noopener">Docs</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="container">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+          <div class="card">
+            <h3>Languages</h3>
+            <ul class="list">
+              <li>JavaScript</li>
+              <li>PHP</li>
+              <li>SQL</li>
+              <li>C#</li>
+              <li>Java</li>
+              <li>Kotlin</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Tools</h3>
+            <ul class="list">
+              <li>Git and GitHub</li>
+              <li>MySQL</li>
+              <li>Firebase</li>
+              <li>Unity</li>
+              <li>VS Code</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Strengths</h3>
+            <ul class="list">
+              <li>Problem solving</li>
+              <li>UI and UX thinking</li>
+              <li>Iterative development</li>
+              <li>Team collaboration</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section alt">
+      <div class="container">
+        <h2>Contact</h2>
+        <p class="lead">
+          Want to connect about internships, projects, or collaboration? Reach out.
+        </p>
+
+        <div class="contact-grid">
+          <div class="card">
+            <h3>Email</h3>
+            <p><a href="mailto:your@email.com">your@email.com</a></p>
+          </div>
+          <div class="card">
+            <h3>GitHub</h3>
+            <p><a href="https://github.com/yourusername" target="_blank" rel="noopener">github.com/yourusername</a></p>
+          </div>
+          <div class="card">
+            <h3>LinkedIn</h3>
+            <p><a href="https://www.linkedin.com/in/yourlinkedin" target="_blank" rel="noopener">linkedin.com/in/yourlinkedin</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Daniel Onyejiekwe. Built with GitHub Pages.</p>
+      <a href="#main">Back to top</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
