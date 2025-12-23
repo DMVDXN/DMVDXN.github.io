@@ -5,7 +5,7 @@ This repository contains the source code for my personal portfolio website, buil
 The site is hosted using GitHub Pages and is updated regularly as I continue to build and refine new projects.
 
 ## Live Website
-https://yourusername.github.io
+https://dmvdxn.github.io/
 
 ## About
 I am a Computer Science student and software developer with experience building full stack web applications, interactive games, and user focused digital experiences. My work focuses on clean structure, problem solving, and turning ideas into functional software.
