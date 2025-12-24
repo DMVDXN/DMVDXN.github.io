@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +15,9 @@
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">
-        <div class="logo" aria-hidden="true">DO</div>
+        <div class="logo">
+          <img src="assets/images/headshot.JPG" alt="Headshot of Daniel Onyejiekwe" loading="lazy" />
+        </div>
         <div class="brand-text">
           <div class="name">Daniel Onyejiekwe</div>
           <div class="role">Computer Science Student | Software Developer</div>
@@ -24,9 +27,9 @@
       <nav class="nav">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
-        <a href="#experience">Experience</a>
       </nav>
 
       <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme">
@@ -36,43 +39,27 @@
   </header>
 
   <main id="main">
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <h1>Building clean, practical software.</h1>
-          <p>
-            I build web applications, interactive experiences, and project driven systems.
-            This site highlights my work, technical skills, and what I am currently learning.
-          </p>
+    <section class="hero-banner">
+      <img class="hero-banner-img" src="assets/images/teaching-banner.JPEG" alt="" aria-hidden="true" role="presentation" />
+      <div class="hero-banner-overlay">
+        <div class="container hero-banner-inner">
+          <div class="hero-banner-copy">
+            <h1>Building clean, practical software.</h1>
+            <p>
+              I build web applications, interactive experiences, and project driven systems.
+              This site highlights my work, technical skills, and involvement.
+            </p>
 
-          <div class="hero-actions">
-            <a class="btn primary" href="#projects">View Projects</a>
-            <a class="btn" href="assets/Daniel_Onyejiekwe_Resume.pdf" target="_blank" rel="noopener">Resume</a>
-          </div>
+            <div class="hero-actions">
+              <a class="btn primary" href="#projects">View Projects</a>
+              <a class="btn" href="assets/images/Daniel_Onyejiekwe_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+            </div>
 
-          <div class="quick-links">
-            <a href="https://github.com/DMVDXN" target="_blank" rel="noopener">GitHub</a>
-            <a href="https://www.linkedin.com/in/daniel-onyejiekwe-44549924a/" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="mailto:onyejiekwe18@gmail.com">Email</a>
-          </div>
-        </div>
-
-        <div class="hero-card" aria-label="Highlights">
-          <div class="stat">
-            <div class="stat-number">3+</div>
-            <div class="stat-label">Project areas</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">Web</div>
-            <div class="stat-label">Full stack and UI</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">Unity</div>
-            <div class="stat-label">Game and XR work</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">AI</div>
-            <div class="stat-label">Practical integrations</div>
+            <div class="quick-links">
+              <a href="https://github.com/DMVDXN" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://www.linkedin.com/in/daniel-onyejiekwe-44549924a/" target="_blank" rel="noopener">LinkedIn</a>
+              <a href="mailto:onyejiekwe18@gmail.com">Email</a>
+            </div>
           </div>
         </div>
       </div>
@@ -112,11 +99,28 @@
       <div class="container">
         <div class="section-head">
           <h2>Projects</h2>
-          <p>Selected work. Each project includes a short summary and links.</p>
+          <p>Selected work. Click a project to see details, screenshots, and links.</p>
         </div>
 
-        <div class="grid">
-          <article class="project card">
+        <div class="filters" role="group" aria-label="Project filters">
+          <button class="filter-btn is-active" type="button" data-filter="all">All</button>
+          <button class="filter-btn" type="button" data-filter="web">Web</button>
+          <button class="filter-btn" type="button" data-filter="unity">Unity</button>
+          <button class="filter-btn" type="button" data-filter="ai">AI</button>
+        </div>
+
+        <div class="grid" id="projectsGrid">
+
+          <article class="project card clickable"
+            data-category="web"
+            data-title="StepX Sneaker Store"
+            data-tag="Web App"
+            data-image="assets/images/StepXhomepage.png"
+            data-video="https://www.youtube.com/embed/YIA4aqLeHS4"
+            data-description="E commerce style site with login, products, favorites, and cart workflows."
+            data-bullets="Auth with sessions|CRUD products and UI|Favorites and cart flow|Database driven pages"
+            data-repo="https://github.com/DMVDXN/stepx-website"
+            data-demo="#">
             <div class="project-top">
               <h3>StepX Sneaker Store</h3>
               <span class="tag">Web App</span>
@@ -134,11 +138,19 @@
             </ul>
             <div class="links">
               <a href="https://github.com/DMVDXN/stepx-website" target="_blank" rel="noopener">Repo</a>
-              <a href="#" target="_blank" rel="noopener">Demo</a>
+              <a href="https://youtu.be/YIA4aqLeHS4" target="_blank" rel="noopener">Watch Demo</a>
             </div>
           </article>
 
-          <article class="project card">
+          <article class="project card clickable"
+            data-category="unity"
+            data-title="Unity Game Projects"
+            data-tag="Game Dev"
+            data-image="assets/images/blackhaxlabimage.jpg"
+            data-description="Multiple Unity projects exploring gameplay loops, UI, collectibles, and narrative interactions."
+            data-bullets="Collectibles and scoring|Inspector friendly scripts|UI and feedback loops|Narrative systems"
+            data-repo="https://github.com/DMVDXN"
+            data-demo="#">
             <div class="project-top">
               <h3>Unity Game Projects</h3>
               <span class="tag">Game Dev</span>
@@ -154,12 +166,20 @@
               <li>Gameplay</li>
             </ul>
             <div class="links">
-              <a href="https://github.com/yourusername" target="_blank" rel="noopener">Repos</a>
+              <a href="https://github.com/DMVDXN" target="_blank" rel="noopener">Repos</a>
               <a href="#" target="_blank" rel="noopener">Video</a>
             </div>
           </article>
 
-          <article class="project card">
+          <article class="project card clickable"
+            data-category="ai"
+            data-title="AI Powered Financial Assistance"
+            data-tag="AI"
+            data-image="assets/images/BDRflyer.jpg"
+            data-description="Prototype work for an AI guided finance assistant that supports budgets, planning, and insights."
+            data-bullets="Mobile first concept|Firebase backend|AI integrations|User workflows and insights"
+            data-repo="https://github.com/JabareeB/AI_Powered_Financial_Assistance"
+            data-demo="#">
             <div class="project-top">
               <h3>AI Powered Financial Assistance</h3>
               <span class="tag">AI</span>
@@ -179,78 +199,81 @@
               <a href="#" target="_blank" rel="noopener">Docs</a>
             </div>
           </article>
+
         </div>
       </div>
     </section>
 
     <section id="experience" class="section">
-  <div class="container">
-    <h2>Experience and Activities</h2>
-    <p class="lead">
-      Work and involvement across research, student orgs, and technical events.
-    </p>
-
-    <div class="grid">
-      <article class="card project">
-        <div class="project-top">
-          <h3>Code Bears</h3>
-          <span class="tag">Student Org</span>
-        </div>
-        <p>
-          Contributions to workshops, peer support, and hands on development sessions.
-          Focus on building skills through real projects and collaboration.
+      <div class="container">
+        <h2>Experience and Activities</h2>
+        <p class="lead">
+          Work and involvement across research, student orgs, and technical events.
         </p>
-        <ul class="chips">
-          <li>Teamwork</li>
-          <li>Workshops</li>
-          <li>Projects</li>
-        </ul>
-        <div class="links">
-          <a href="#" target="_blank" rel="noopener">Link</a>
-        </div>
-      </article>
 
-      <article class="card project">
-        <div class="project-top">
-          <h3>HBCU Brain Drone Race</h3>
-          <span class="tag">HAX Lab</span>
-        </div>
-        <p>
-          Supported event execution and technical workflow. Work included coordination,
-          documentation, and building materials for participants and sponsors.
-        </p>
-        <ul class="chips">
-          <li>Event support</li>
-          <li>Docs</li>
-          <li>Media</li>
-        </ul>
-        <div class="links">
-          <a href="#" target="_blank" rel="noopener">Link</a>
-        </div>
-      </article>
+        <div class="grid">
+          <article class="card project">
+            <div class="project-top">
+              <h3>Code Bears</h3>
+              <span class="tag">Youth Camp</span>
+            </div>
 
-      <article class="card project">
-        <div class="project-top">
-          <h3>Morgan State HAX Lab</h3>
-          <span class="tag">Research</span>
-        </div>
-        <p>
-          Hands on work across prototypes and technical documentation. Focus on building,
-          testing, and improving systems through iteration.
-        </p>
-        <ul class="chips">
-          <li>Prototyping</li>
-          <li>Documentation</li>
-          <li>Collaboration</li>
-        </ul>
-        <div class="links">
-          <a href="#" target="_blank" rel="noopener">Link</a>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
+            <img class="card-img card-img-logo" src="assets/images/codebears_image2.jpg" alt="Code Bears student organization activities" loading="lazy" />
 
+            <p>
+              Contributions to workshops, peer support, and hands on development sessions.
+              Focus on building skills through real projects and collaboration.
+            </p>
+
+            <ul class="chips">
+              <li>Teamwork</li>
+              <li>Workshops</li>
+              <li>Projects</li>
+            </ul>
+          </article>
+
+          <article class="card project">
+            <div class="project-top">
+              <h3>HBCU Brain Drone Race</h3>
+              <span class="tag">HAX Lab</span>
+            </div>
+
+            <img class="card-img card-img-logo" src="assets/images/BDRflyer.jpg" alt="HBCU Brain Drone Race event at Morgan State" loading="lazy" />
+
+            <p>
+              Supported event execution and technical workflows including documentation,
+              setup, and coordination for participants.
+            </p>
+
+            <ul class="chips">
+              <li>Event Support</li>
+              <li>Documentation</li>
+              <li>Media</li>
+            </ul>
+          </article>
+
+          <article class="card project">
+            <div class="project-top">
+              <h3>Morgan State HAX Lab</h3>
+              <span class="tag">Research</span>
+            </div>
+
+            <img class="card-img card-img-logo" src="assets/images/blackhaxlabimage.jpg" alt="Morgan State HAX Lab research and prototyping" loading="lazy" />
+
+            <p>
+              Hands on work across prototypes and technical documentation with a focus
+              on iteration and collaboration.
+            </p>
+
+            <ul class="chips">
+              <li>Prototyping</li>
+              <li>Research</li>
+              <li>Collaboration</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
 
     <section id="skills" class="section">
       <div class="container">
@@ -259,6 +282,7 @@
           <div class="card">
             <h3>Languages</h3>
             <ul class="list">
+              <li>Python</li>
               <li>JavaScript</li>
               <li>PHP</li>
               <li>SQL</li>
@@ -300,19 +324,55 @@
         <div class="contact-grid">
           <div class="card">
             <h3>Email</h3>
-            <p><a href="mailto:onyejiekwe18@gmail.com">your@email.com</a></p>
+            <p><a href="mailto:onyejiekwe18@gmail.com">onyejiekwe18@gmail.com</a></p>
           </div>
           <div class="card">
             <h3>GitHub</h3>
-            <p><a href="https://github.com/DMVDXN" target="_blank" rel="noopener">github.com/yourusername</a></p>
+            <p><a href="https://github.com/DMVDXN" target="_blank" rel="noopener">github.com/DMVDXN</a></p>
           </div>
           <div class="card">
             <h3>LinkedIn</h3>
-            <p><a href="https://www.linkedin.com/in/daniel-onyejiekwe-44549924a/" target="_blank" rel="noopener">linkedin.com/in/yourlinkedin</a></p>
+            <p><a href="https://www.linkedin.com/in/daniel-onyejiekwe-44549924a/" target="_blank" rel="noopener">linkedin.com/in/daniel-onyejiekwe-44549924a</a></p>
           </div>
         </div>
       </div>
     </section>
+
+    <div class="modal" id="projectModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close="true"></div>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modal-close" type="button" aria-label="Close" data-close="true">Close</button>
+
+        <div class="modal-body">
+          <div class="modal-media">
+            <iframe
+              id="modalVideo"
+              title="Project demo video"
+              allow="autoplay; encrypted-media; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+            <img id="modalImage" src="" alt="" />
+          </div>
+
+          <div class="modal-content">
+            <div class="modal-top">
+              <h3 id="modalTitle">Project</h3>
+              <span class="tag" id="modalTag">Tag</span>
+            </div>
+
+            <p id="modalDesc" class="modal-desc"></p>
+
+            <ul id="modalBullets" class="modal-bullets"></ul>
+
+            <div class="links modal-links">
+              <a id="modalRepo" href="#" target="_blank" rel="noopener">Repo</a>
+              <a id="modalDemo" href="#" target="_blank" rel="noopener">Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </main>
 
   <footer class="site-footer">
