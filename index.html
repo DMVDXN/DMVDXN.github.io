@@ -16,7 +16,7 @@
     <div class="container header-inner">
       <div class="brand">
         <div class="logo">
-          <img src="assets/images/headshot.JPG" alt="Headshot of Daniel Onyejiekwe" loading="lazy" />
+          <img src="assets/images/CZ6A8919.JPG" alt="Headshot of Daniel Onyejiekwe" loading="lazy" />
         </div>
         <div class="brand-text">
           <div class="name">Daniel Onyejiekwe</div>
@@ -26,9 +26,11 @@
 
       <nav class="nav">
         <a href="#about">About</a>
-        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
         <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
+        <a href="#awards">Awards</a>
         <a href="#contact">Contact</a>
       </nav>
 
@@ -52,7 +54,7 @@
 
             <div class="hero-actions">
               <a class="btn primary" href="#projects">View Projects</a>
-              <a class="btn" href="assets/images/Daniel_Onyejiekwe_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+              <a class="btn" href="assets/images/Daniel_Onyejiekwe_Resume%20V2.pdf" target="_blank" rel="noopener">Resume</a>
             </div>
 
             <div class="quick-links">
@@ -65,7 +67,7 @@
       </div>
     </section>
 
-    <section id="about" class="section">
+    <section id="about" class="section reveal">
       <div class="container">
         <h2>About</h2>
         <p class="lead">
@@ -74,7 +76,7 @@
           and improving them through iteration.
         </p>
 
-        <div class="about-grid">
+        <div class="about-grid reveal-group">
           <div class="card">
             <h3>What I focus on</h3>
             <ul class="list">
@@ -86,16 +88,80 @@
           <div class="card">
             <h3>What I am building</h3>
             <ul class="list">
-              <li>StepX: online sneaker store with account features</li>
-              <li>Unity projects: interactive and narrative systems</li>
-              <li>AI finance assistant: coaching and insights workflows</li>
+              <li>SENTINEL: AI presidential decision support system</li>
+              <li>HAX Lab research: Lyris, Icon History, Collision Course (VR)</li>
+              <li>Roar &amp; Rhythm: creative platform for MSU Poet Club</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="projects" class="section alt">
+    <section id="education" class="section alt reveal">
+      <div class="container">
+        <h2>Education</h2>
+        <p class="lead">Computer Science training with a focus on building real systems.</p>
+
+        <div class="about-grid reveal-group">
+          <article class="card">
+            <div class="project-top">
+              <h3>Emory University</h3>
+              <span class="tag">M.S.</span>
+            </div>
+            <p class="meta">Aug 2026 – May 2028 · Atlanta, GA</p>
+            <p>M.S. Computer Science</p>
+          </article>
+
+          <article class="card">
+            <div class="project-top">
+              <h3>Morgan State University</h3>
+              <span class="tag">B.S.</span>
+            </div>
+            <p class="meta">Aug 2022 – May 2026 · Baltimore, MD</p>
+            <p>B.S. Computer Science · GPA: 3.8 / 4.00 · Magna Cum Laude</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section reveal">
+      <div class="container">
+        <h2>Experience</h2>
+        <p class="lead">Teaching, research, and community work in computer science.</p>
+
+        <div class="about-grid reveal-group">
+          <article class="card">
+            <div class="project-top">
+              <h3>Teaching Assistant — Database Design</h3>
+              <span class="tag">Jan – May 2026</span>
+            </div>
+            <p class="meta">Morgan State University · Baltimore, MD</p>
+            <ul class="list">
+              <li>Guided 38 students through ER modeling, normalization, and SQL (DDL/DML)</li>
+              <li>Led review sessions and gave feedback on schema design and coursework</li>
+              <li>Contributed to an 84% class grade average</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="project-top">
+              <h3>Undergraduate Researcher — HAX Lab</h3>
+              <span class="tag">May 2025 – Present</span>
+            </div>
+            <p class="meta">Human-AI eXperience Lab · Dr. Naja A. Mack · Morgan State</p>
+            <ul class="list">
+              <li>Led <strong>Icon History</strong>: interactive museum with 7 rooms, 9 mini-games, and 2 AI chatbots (Flask, JavaScript, Claude API, UI/UX)</li>
+              <li>Developed <strong>Lyris</strong>: AI music and poetry companion with 6 integrations and voice input (Next.js, TypeScript, Claude API, Firebase)</li>
+              <li>Built <strong>Collision Course</strong>: VR concussion simulation with 30 screens and 2 quiz flows, unit tested with 6 users (Unity, C#, JSON)</li>
+              <li>Mentored 1,500+ middle/high school students through <strong>CodeBears</strong> (mBot, computer vision, ML lessons)</li>
+              <li>Supported the Inaugural <strong>HBCU Brain Drone Race</strong> — logistics, drone calibration, and backup operator training for 250+ attendees</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section alt reveal">
       <div class="container">
         <div class="section-head">
           <h2>Projects</h2>
@@ -104,12 +170,189 @@
 
         <div class="filters" role="group" aria-label="Project filters">
           <button class="filter-btn is-active" type="button" data-filter="all">All</button>
-          <button class="filter-btn" type="button" data-filter="web">Web</button>
-          <button class="filter-btn" type="button" data-filter="unity">Unity</button>
           <button class="filter-btn" type="button" data-filter="ai">AI</button>
+          <button class="filter-btn" type="button" data-filter="web">Web</button>
+          <button class="filter-btn" type="button" data-filter="vr">VR</button>
+          <button class="filter-btn" type="button" data-filter="mobile">Mobile</button>
+          <button class="filter-btn" type="button" data-filter="research">Research</button>
         </div>
 
-        <div class="grid" id="projectsGrid">
+        <div class="grid reveal-group" id="projectsGrid">
+
+          <article class="project card clickable"
+            data-category="ai"
+            data-title="SENTINEL — Presidential Decision Support System"
+            data-tag="AI"
+            data-image=""
+            data-description="A demo-ready AI presidential briefing system unifying a 5-person Agile team's features."
+            data-bullets="Built 7 of 37 AI agents|Live threat dashboard|Global radar map|Python, React, Vite, Google Cloud, FRED API"
+            data-repo="https://github.com/DMVDXN"
+            data-demo="#">
+            <div class="project-top">
+              <h3>SENTINEL</h3>
+              <span class="tag">AI</span>
+            </div>
+            <p class="meta">Jan 2026 – May 2026</p>
+            <p>
+              Unified a 5-person Agile team's features into a demo-ready presidential briefing system —
+              built 7 of 37 AI agents, a live threat dashboard, and a global radar map.
+            </p>
+            <ul class="chips">
+              <li>Python</li>
+              <li>React</li>
+              <li>Vite</li>
+              <li>Google Cloud</li>
+              <li>FRED API</li>
+            </ul>
+            <div class="links">
+              <a href="https://github.com/DMVDXN" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </article>
+
+          <article class="project card clickable"
+            data-category="ai"
+            data-title="SocialSense AI"
+            data-tag="AI · VR"
+            data-image=""
+            data-description="1st place AI social coaching platform with VR prototype on Meta Quest 3."
+            data-bullets="Voice coaching|Sentiment review|Safe-zone heatmaps|Meta Quest 3 prototype|1st Place — PROPEL Future of Tech Challenge"
+            data-repo="https://github.com/DMVDXN"
+            data-demo="#">
+            <div class="project-top">
+              <h3>SocialSense AI</h3>
+              <span class="tag">AI · VR</span>
+            </div>
+            <p class="meta">Jan 2026 – Apr 2026</p>
+            <p>
+              1st place AI social coaching platform built with a 4-person team — voice coaching, sentiment review,
+              safe-zone heatmaps, and a Meta Quest 3 prototype.
+            </p>
+            <ul class="chips">
+              <li>React</li>
+              <li>Vite</li>
+              <li>Supabase</li>
+              <li>Unity</li>
+              <li>Convai</li>
+              <li>Web Speech API</li>
+            </ul>
+            <div class="links">
+              <a href="https://github.com/DMVDXN" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </article>
+
+          <article class="project card clickable"
+            data-category="ai"
+            data-title="Icon History"
+            data-tag="AI · Web"
+            data-image=""
+            data-description="Interactive museum web experience with mini-games and AI-guided chatbots."
+            data-bullets="7 themed rooms|9 mini-games|2 AI chatbots (Claude API)|Flask + JavaScript UI/UX|Preparing a usability study"
+            data-repo="https://github.com/DMVDXN"
+            data-demo="#">
+            <div class="project-top">
+              <h3>Icon History</h3>
+              <span class="tag">AI · Web</span>
+            </div>
+            <p class="meta">HAX Lab Research</p>
+            <p>
+              Interactive museum web experience built at the HAX Lab — 7 themed rooms, 9 mini-games,
+              and 2 AI chatbots guiding visitors. Preparing a usability study.
+            </p>
+            <ul class="chips">
+              <li>Flask</li>
+              <li>JavaScript</li>
+              <li>Claude API</li>
+              <li>UI/UX</li>
+            </ul>
+            <div class="links">
+              <a href="https://github.com/DMVDXN" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </article>
+
+          <article class="project card clickable"
+            data-category="ai"
+            data-title="Lyris"
+            data-tag="AI"
+            data-image=""
+            data-description="AI music and poetry companion with 6 integrations and voice input."
+            data-bullets="6 integrations: Spotify, Genius, TTS, image &amp; song generation|Voice input|Next.js + TypeScript|Claude API + Firebase|Contributing toward a research paper"
+            data-repo="https://github.com/DMVDXN/Lyris"
+            data-demo="#">
+            <div class="project-top">
+              <h3>Lyris</h3>
+              <span class="tag">AI</span>
+            </div>
+            <p class="meta">HAX Lab Research</p>
+            <p>
+              AI music and poetry companion with 6 integrations (Spotify, Genius, TTS, image and song generation)
+              and voice input. Contributing toward a research paper.
+            </p>
+            <ul class="chips">
+              <li>Next.js</li>
+              <li>TypeScript</li>
+              <li>Claude API</li>
+              <li>Firebase</li>
+            </ul>
+            <div class="links">
+              <a href="https://github.com/DMVDXN/Lyris" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </article>
+
+          <article class="project card clickable"
+            data-category="vr"
+            data-title="Collision Course"
+            data-tag="VR"
+            data-image=""
+            data-description="VR concussion simulation built and evaluated with users at the HAX Lab."
+            data-bullets="30 screens across the experience|2 quiz flows and 2 scenarios|Unit tested with 6 users|Unity, C#, and JSON|Preparing a usability study"
+            data-repo="https://github.com/DMVDXN/collision_course_research"
+            data-demo="#">
+            <div class="project-top">
+              <h3>Collision Course</h3>
+              <span class="tag">VR</span>
+            </div>
+            <p class="meta">HAX Lab Research</p>
+            <p>
+              VR concussion simulation with 30 screens, 2 quiz flows, and 2 scenarios — unit tested with 6 users.
+              Preparing a usability study.
+            </p>
+            <ul class="chips">
+              <li>Unity</li>
+              <li>C#</li>
+              <li>JSON</li>
+            </ul>
+            <div class="links">
+              <a href="https://github.com/DMVDXN/collision_course_research" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </article>
+
+          <article class="project card clickable"
+            data-category="web"
+            data-title="Roar &amp; Rhythm"
+            data-tag="Web App"
+            data-image=""
+            data-description="Full-stack creative platform for Morgan State's MSU Poet Club community of 100+ members."
+            data-bullets="Creative content sharing|Community engagement|100+ member club|PHP, MySQL, JavaScript"
+            data-repo="https://github.com/DMVDXN/MSU_Roar_and_Rhythm"
+            data-demo="#">
+            <div class="project-top">
+              <h3>Roar &amp; Rhythm</h3>
+              <span class="tag">Web App</span>
+            </div>
+            <p class="meta">Oct 2025 – Present</p>
+            <p>
+              Full-stack creative platform for Morgan State's MSU Poet Club community of 100+ members,
+              supporting creative content sharing and engagement.
+            </p>
+            <ul class="chips">
+              <li>PHP</li>
+              <li>MySQL</li>
+              <li>JavaScript</li>
+            </ul>
+            <div class="links">
+              <a href="https://github.com/DMVDXN/MSU_Roar_and_Rhythm" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </article>
 
           <article class="project card clickable"
             data-category="web"
@@ -117,86 +360,114 @@
             data-tag="Web App"
             data-image="assets/images/StepXhomepage.png"
             data-video="https://www.youtube.com/embed/YIA4aqLeHS4"
-            data-description="E commerce style site with login, products, favorites, and cart workflows."
-            data-bullets="Auth with sessions|CRUD products and UI|Favorites and cart flow|Database driven pages"
+            data-description="Full stack sneaker store with CRUD, cart, favorites, and dynamic account-based storage."
+            data-bullets="Auth with sessions|CRUD products and UI|Cart and favorites|Dynamic account-based storage"
             data-repo="https://github.com/DMVDXN/stepx-website"
             data-demo="#">
             <div class="project-top">
               <h3>StepX Sneaker Store</h3>
               <span class="tag">Web App</span>
             </div>
+            <p class="meta">Dec 2024 – May 2025</p>
             <p>
-              E commerce style site with login, products, favorites, and cart workflows. Built to practice real CRUD,
-              sessions, and database driven UI.
+              Full stack sneaker store with CRUD, 4 core features including cart and favorites,
+              and dynamic account-based storage.
             </p>
             <ul class="chips">
               <li>PHP</li>
               <li>MySQL</li>
+              <li>JavaScript</li>
               <li>HTML</li>
               <li>CSS</li>
-              <li>JavaScript</li>
             </ul>
             <div class="links">
-              <a href="https://github.com/DMVDXN/stepx-website" target="_blank" rel="noopener">Repo</a>
+              <a href="https://github.com/DMVDXN/stepx-website" target="_blank" rel="noopener">GitHub</a>
               <a href="https://youtu.be/YIA4aqLeHS4" target="_blank" rel="noopener">Watch Demo</a>
             </div>
           </article>
 
           <article class="project card clickable"
-            data-category="unity"
-            data-title="Unity Game Projects"
-            data-tag="Game Dev"
-            data-image="assets/images/blackhaxlabimage.jpg"
-            data-description="Multiple Unity projects exploring gameplay loops, UI, collectibles, and narrative interactions."
-            data-bullets="Collectibles and scoring|Inspector friendly scripts|UI and feedback loops|Narrative systems"
-            data-repo="https://github.com/DMVDXN"
-            data-demo="#">
-            <div class="project-top">
-              <h3>Unity Game Projects</h3>
-              <span class="tag">Game Dev</span>
-            </div>
-            <p>
-              Multiple Unity projects exploring gameplay loops, UI, collectibles, scoring, and narrative interactions.
-              Focus on clean scripts and inspector friendly setup.
-            </p>
-            <ul class="chips">
-              <li>Unity</li>
-              <li>C#</li>
-              <li>UI</li>
-              <li>Gameplay</li>
-            </ul>
-            <div class="links">
-              <a href="https://github.com/DMVDXN" target="_blank" rel="noopener">Repos</a>
-              <a href="#" target="_blank" rel="noopener">Video</a>
-            </div>
-          </article>
-
-          <article class="project card clickable"
-            data-category="ai"
+            data-category="mobile"
             data-title="AI Powered Financial Assistance"
-            data-tag="AI"
+            data-tag="Mobile · AI"
             data-image="assets/images/BDRflyer.jpg"
-            data-description="Prototype work for an AI guided finance assistant that supports budgets, planning, and insights."
-            data-bullets="Mobile first concept|Firebase backend|AI integrations|User workflows and insights"
+            data-description="Financial assistance app for college students built in an Agile/Scrum environment."
+            data-bullets="4-person team|Expo + TypeScript|Backend API integration|Agile/Scrum workflow"
             data-repo="https://github.com/JabareeB/AI_Powered_Financial_Assistance"
             data-demo="#">
             <div class="project-top">
               <h3>AI Powered Financial Assistance</h3>
-              <span class="tag">AI</span>
+              <span class="tag">Mobile · AI</span>
             </div>
+            <p class="meta">Dec 2024 – May 2025</p>
             <p>
-              Concept and prototype work for an AI guided finance assistant that supports budgets, planning, and insights
-              for different user types.
+              Contributed to a 4-person team building a financial assistance app for college students using Expo
+              and TypeScript in an Agile/Scrum environment.
             </p>
             <ul class="chips">
-              <li>Mobile</li>
-              <li>Firebase</li>
-              <li>AI APIs</li>
-              <li>Analytics</li>
+              <li>Expo</li>
+              <li>TypeScript</li>
+              <li>Backend API</li>
             </ul>
             <div class="links">
-              <a href="https://github.com/JabareeB/AI_Powered_Financial_Assistance" target="_blank" rel="noopener">Repo</a>
-              <a href="#" target="_blank" rel="noopener">Docs</a>
+              <a href="https://github.com/JabareeB/AI_Powered_Financial_Assistance" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </article>
+
+          <article class="project card clickable"
+            data-category="research"
+            data-title="Meta VR Headset Research"
+            data-tag="Research · VR"
+            data-image=""
+            data-description="Comparative analysis of Meta Quest 2, Quest 3, and Quest Pro headsets — hardware, comfort, and immersion."
+            data-bullets="Hands-on testing of Quest 2, 3, and Pro|Display, processing, tracking, comfort, and FOV breakdowns|Use case recommendations for gaming, education, and enterprise|Authored Sept 2025"
+            data-repo="https://github.com/DMVDXN/meta-vr-research"
+            data-demo="#">
+            <div class="project-top">
+              <h3>Meta VR Headset Research</h3>
+              <span class="tag">Research · VR</span>
+            </div>
+            <p class="meta">Sept 2025</p>
+            <p>
+              Comparative analysis of Meta Quest 2, Quest 3, and Quest Pro — hardware specs, comfort,
+              immersion, and best-use scenarios for developers, educators, and enterprise.
+            </p>
+            <ul class="chips">
+              <li>Technical Writing</li>
+              <li>VR Hardware</li>
+              <li>Comparative Analysis</li>
+            </ul>
+            <div class="links">
+              <a href="https://github.com/DMVDXN/meta-vr-research" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </article>
+
+          <article class="project card clickable"
+            data-category="research"
+            data-title="Unity Cloud Services Guide"
+            data-tag="Research · Unity"
+            data-image=""
+            data-description="Setup guide and best practices for Unity Cloud Services — Cloud Build, Cloud Save, DevOps, and Asset Manager."
+            data-bullets="Core services explained: Cloud Build, Save, DevOps, Analytics|Step-by-step setup with troubleshooting|Plastic SCM vs Gluon breakdown for team workflows|Pricing and seat planning|Authored June 2025"
+            data-repo="https://github.com/DMVDXN/Unity-Cloud-Usage-Guide"
+            data-demo="#">
+            <div class="project-top">
+              <h3>Unity Cloud Services Guide</h3>
+              <span class="tag">Research · Unity</span>
+            </div>
+            <p class="meta">June 2025</p>
+            <p>
+              Comprehensive setup guide and best practices for Unity Cloud Services — covers Cloud Build, Cloud Save,
+              DevOps version control, and Asset Manager, with troubleshooting and pricing breakdowns.
+            </p>
+            <ul class="chips">
+              <li>Unity Cloud</li>
+              <li>Plastic SCM</li>
+              <li>Team Workflows</li>
+              <li>Technical Writing</li>
+            </ul>
+            <div class="links">
+              <a href="https://github.com/DMVDXN/Unity-Cloud-Usage-Guide" target="_blank" rel="noopener">GitHub</a>
             </div>
           </article>
 
@@ -204,124 +475,91 @@
       </div>
     </section>
 
-    <section id="experience" class="section">
+
+    <section id="skills" class="section reveal">
       <div class="container">
-        <h2>Experience and Activities</h2>
-        <p class="lead">
-          Work and involvement across research, student orgs, and technical events.
-        </p>
-
-        <div class="grid">
-          <article class="card project">
-            <div class="project-top">
-              <h3>Code Bears</h3>
-              <span class="tag">Youth Camp</span>
-            </div>
-
-            <img class="card-img card-img-logo" src="assets/images/codebears_image2.jpg" alt="Code Bears student organization activities" loading="lazy" />
-
-            <p>
-              Contributions to workshops, peer support, and hands on development sessions.
-              Focus on building skills through real projects and collaboration.
-            </p>
-
-            <ul class="chips">
-              <li>Teamwork</li>
-              <li>Workshops</li>
-              <li>Projects</li>
-            </ul>
-          </article>
-
-          <article class="card project">
-            <div class="project-top">
-              <h3>HBCU Brain Drone Race</h3>
-              <span class="tag">HAX Lab</span>
-            </div>
-
-            <img class="card-img card-img-logo" src="assets/images/BDRflyer.jpg" alt="HBCU Brain Drone Race event at Morgan State" loading="lazy" />
-
-            <p>
-              Supported event execution and technical workflows including documentation,
-              setup, and coordination for participants.
-            </p>
-
-            <ul class="chips">
-              <li>Event Support</li>
-              <li>Documentation</li>
-              <li>Media</li>
-            </ul>
-          </article>
-
-          <article class="card project">
-            <div class="project-top">
-              <h3>Morgan State HAX Lab</h3>
-              <span class="tag">Research</span>
-            </div>
-
-            <img class="card-img card-img-logo" src="assets/images/blackhaxlabimage.jpg" alt="Morgan State HAX Lab research and prototyping" loading="lazy" />
-
-            <p>
-              Hands on work across prototypes and technical documentation with a focus
-              on iteration and collaboration.
-            </p>
-
-            <ul class="chips">
-              <li>Prototyping</li>
-              <li>Research</li>
-              <li>Collaboration</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="section">
-      <div class="container">
-        <h2>Skills</h2>
-        <div class="skills-grid">
+        <h2>Technical Skills</h2>
+        <div class="skills-grid reveal-group">
           <div class="card">
             <h3>Languages</h3>
-            <ul class="list">
+            <ul class="chips">
               <li>Python</li>
+              <li>Java</li>
+              <li>C#</li>
               <li>JavaScript</li>
+              <li>TypeScript</li>
               <li>PHP</li>
               <li>SQL</li>
-              <li>C#</li>
-              <li>Java</li>
+              <li>HTML/CSS</li>
               <li>Kotlin</li>
             </ul>
           </div>
           <div class="card">
-            <h3>Tools</h3>
-            <ul class="list">
-              <li>Git and GitHub</li>
-              <li>MySQL</li>
-              <li>Firebase</li>
+            <h3>Frameworks &amp; Tools</h3>
+            <ul class="chips">
+              <li>React</li>
+              <li>Next.js</li>
+              <li>Flask</li>
+              <li>Expo</li>
+              <li>Vite</li>
               <li>Unity</li>
+              <li>Node.js</li>
+              <li>Docker</li>
+              <li>Git / GitHub</li>
               <li>VS Code</li>
+              <li>MAMP</li>
             </ul>
           </div>
           <div class="card">
-            <h3>Strengths</h3>
-            <ul class="list">
-              <li>Problem solving</li>
-              <li>UI and UX thinking</li>
-              <li>Iterative development</li>
-              <li>Team collaboration</li>
+            <h3>Databases · Cloud · APIs</h3>
+            <ul class="chips">
+              <li>MySQL</li>
+              <li>Firebase</li>
+              <li>Supabase</li>
+              <li>Google Cloud</li>
+              <li>OpenAI API</li>
+              <li>Claude API</li>
+              <li>Linux / Bash</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="section alt">
+    <section id="awards" class="section alt reveal">
+      <div class="container">
+        <h2>Awards &amp; Activities</h2>
+        <p class="lead">Recognition, hackathons, and student org involvement.</p>
+
+        <div class="about-grid reveal-group">
+          <div class="card">
+            <h3>Awards</h3>
+            <ul class="list">
+              <li><strong>1st Place</strong> — PROPEL Center Future of Tech Innovation Challenge (Mar 2026)</li>
+              <li>SCMNS Graduating Senior Honors Recognition (May 2026)</li>
+              <li>Dean's List — 7 semesters (Spring 2023 – Spring 2026)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Extracurricular</h3>
+            <ul class="list">
+              <li><strong>Hackathons:</strong> BE Smart 2025, MorganHacks 2025 / 2026</li>
+              <li><strong>CRA Research Showcase:</strong> Team lead and poster presenter</li>
+              <li><strong>Member:</strong> SACS · NSBE (2026 attendee) · ColorStack</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section reveal">
       <div class="container">
         <h2>Contact</h2>
         <p class="lead">
           Want to connect about internships, projects, or collaboration? Reach out.
         </p>
 
-        <div class="contact-grid">
+        <div class="contact-grid reveal-group">
           <div class="card">
             <h3>Email</h3>
             <p><a href="mailto:onyejiekwe18@gmail.com">onyejiekwe18@gmail.com</a></p>
