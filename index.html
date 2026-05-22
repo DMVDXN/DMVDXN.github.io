@@ -4,9 +4,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daniel Onyejiekwe</title>
-  <meta name="description" content="Daniel Onyejiekwe - Computer Science student and software developer. Portfolio featuring web, game, and AI projects." />
-  <link rel="stylesheet" href="style.css" />
+  <title>Daniel Onyejiekwe — Computer Science Student & Software Developer</title>
+  <meta name="description" content="Daniel Onyejiekwe — Computer Science student at Morgan State (M.S. at Emory). Portfolio featuring AI, full-stack web, VR, and research projects from the HAX Lab." />
+  <meta name="author" content="Daniel Onyejiekwe" />
+  <meta name="theme-color" content="#0a0e1f" />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/images/CZ6A8919.JPG" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dmvdxn.github.io/" />
+  <meta property="og:title" content="Daniel Onyejiekwe — Computer Science Student & Software Developer" />
+  <meta property="og:description" content="Portfolio featuring AI, full-stack web, VR, and research projects. M.S. CS at Emory, B.S. CS at Morgan State (Magna Cum Laude)." />
+  <meta property="og:image" content="https://dmvdxn.github.io/assets/images/CZ6A8919.JPG" />
+  <meta property="og:image:alt" content="Headshot of Daniel Onyejiekwe" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Daniel Onyejiekwe — Computer Science Student & Software Developer" />
+  <meta name="twitter:description" content="Portfolio featuring AI, full-stack web, VR, and research projects. M.S. CS at Emory, B.S. CS at Morgan State (Magna Cum Laude)." />
+  <meta name="twitter:image" content="https://dmvdxn.github.io/assets/images/CZ6A8919.JPG" />
+
+  <link rel="stylesheet" href="style.css?v=2" />
 </head>
 
 <body>
@@ -24,7 +42,7 @@
         </div>
       </div>
 
-      <nav class="nav">
+      <nav id="primaryNav" class="nav">
         <a href="#about">About</a>
         <a href="#education">Education</a>
         <a href="#experience">Experience</a>
@@ -34,9 +52,18 @@
         <a href="#contact">Contact</a>
       </nav>
 
-      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme">
-        Theme
-      </button>
+      <div class="header-actions">
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme">
+          Theme
+        </button>
+
+        <button id="navToggle" class="nav-toggle" type="button"
+                aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -620,6 +647,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=2"></script>
 </body>
 </html>

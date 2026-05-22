@@ -36,6 +36,40 @@
     });
   }
 
+  const navToggle = document.getElementById("navToggle");
+  const primaryNav = document.getElementById("primaryNav");
+
+  function setNavOpen(open) {
+    if (!navToggle || !primaryNav) return;
+    navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    primaryNav.classList.toggle("is-open", open);
+  }
+
+  if (navToggle && primaryNav) {
+    navToggle.addEventListener("click", function () {
+      const open = navToggle.getAttribute("aria-expanded") === "true";
+      setNavOpen(!open);
+    });
+
+    primaryNav.addEventListener("click", function (e) {
+      if (e.target && e.target.tagName === "A") setNavOpen(false);
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!primaryNav.classList.contains("is-open")) return;
+      if (primaryNav.contains(e.target) || navToggle.contains(e.target)) return;
+      setNavOpen(false);
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && primaryNav.classList.contains("is-open")) {
+        setNavOpen(false);
+        navToggle.focus();
+      }
+    });
+  }
+
   const filterButtons = Array.from(document.querySelectorAll(".filter-btn"));
   const projectCards = Array.from(document.querySelectorAll("#projectsGrid .project"));
 

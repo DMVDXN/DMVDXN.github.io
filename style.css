@@ -156,6 +156,12 @@ a:hover {
   border-bottom-color: transparent;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .theme-toggle {
   padding: 10px 12px;
   border-radius: 12px;
@@ -163,6 +169,43 @@ a:hover {
   background: var(--panel);
   color: var(--text);
   cursor: pointer;
+}
+
+/* Hamburger — hidden on desktop, shown on mobile */
+.nav-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  cursor: pointer;
+  position: relative;
+}
+
+.nav-toggle span {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease, top 0.25s ease;
+}
+
+.nav-toggle span:nth-child(1) { top: 13px; }
+.nav-toggle span:nth-child(2) { top: 20px; }
+.nav-toggle span:nth-child(3) { top: 27px; }
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  top: 20px;
+  transform: rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  top: 20px;
+  transform: rotate(-45deg);
 }
 
 /* HERO BANNER (single source of truth) */
@@ -594,7 +637,45 @@ a:hover {
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
-  .nav { display: none; }
+  .nav-toggle { display: block; }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 12px;
+    background: rgba(10, 14, 31, 0.96);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  [data-theme="light"] .nav {
+    background: rgba(246, 248, 255, 0.96);
+  }
+
+  .nav.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav a {
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 1.05rem;
+  }
+
+  .site-header { position: sticky; }
+  .header-inner { position: relative; }
 
   .about-grid,
   .grid,
@@ -616,4 +697,10 @@ a:hover {
     border-bottom: 1px solid var(--border);
     min-height: 280px;
   }
+}
+
+@media (max-width: 520px) {
+  .role { display: none; }
+  .brand { min-width: 0; }
+  .theme-toggle { padding: 8px 10px; font-size: 0.9rem; }
 }

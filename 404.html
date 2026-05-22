@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Page Not Found · Daniel Onyejiekwe</title>
+  <meta name="description" content="The page you were looking for doesn't exist." />
+  <meta name="theme-color" content="#0a0e1f" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="style.css?v=2" />
+  <style>
+    .notfound {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .notfound-inner { max-width: 560px; }
+    .notfound h1 {
+      font-size: clamp(4rem, 14vw, 8rem);
+      margin: 0 0 8px;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      font-weight: 800;
+    }
+    .notfound h2 {
+      margin: 0 0 16px;
+      font-size: 1.5rem;
+    }
+    .notfound p {
+      color: var(--muted);
+      margin: 0 0 24px;
+    }
+    .notfound .btn { margin: 0 6px; }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo">
+          <img src="assets/images/CZ6A8919.JPG" alt="Headshot of Daniel Onyejiekwe" />
+        </div>
+        <div class="brand-text">
+          <div class="name">Daniel Onyejiekwe</div>
+          <div class="role">Computer Science Student | Software Developer</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="notfound">
+    <div class="notfound-inner">
+      <h1>404</h1>
+      <h2>Page not found</h2>
+      <p>The page you're looking for doesn't exist or has been moved. Let's get you back somewhere useful.</p>
+      <a class="btn primary" href="/">Back to Home</a>
+      <a class="btn" href="/#projects">View Projects</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Daniel Onyejiekwe.</p>
+      <a href="/">Home</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = String(new Date().getFullYear());
+    const saved = (function () { try { return localStorage.getItem("portfolio-theme"); } catch (e) { return null; } })();
+    if (saved === "light") document.documentElement.setAttribute("data-theme", "light");
+  </script>
+</body>
+</html>
