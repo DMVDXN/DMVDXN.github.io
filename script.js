@@ -224,41 +224,104 @@
   if (!prefersReducedMotion) {
     const heroImg = document.querySelector(".hero-banner-img");
     const heroSection = document.querySelector(".hero-banner");
-    if (heroImg && heroSection) {
-      let ticking = false;
-      const updateParallax = function () {
+    const parallaxCards = Array.from(document.querySelectorAll(".card"));
+
+    let ticking = false;
+
+    const updateParallax = function () {
+      const viewportH = window.innerHeight;
+      const viewportCenter = viewportH / 2;
+
+      if (heroImg && heroSection) {
         const rect = heroSection.getBoundingClientRect();
-        if (rect.bottom > 0 && rect.top < window.innerHeight) {
+        if (rect.bottom > 0 && rect.top < viewportH) {
           const offset = rect.top * -0.35;
           heroImg.style.transform = "translate3d(0, " + offset + "px, 0) scale(1.08)";
         }
-        ticking = false;
-      };
-      const onScroll = function () {
-        if (!ticking) {
-          window.requestAnimationFrame(updateParallax);
-          ticking = true;
-        }
-      };
-      window.addEventListener("scroll", onScroll, { passive: true });
-      updateParallax();
-    }
+      }
+
+      for (let i = 0; i < parallaxCards.length; i++) {
+        const card = parallaxCards[i];
+        const rect = card.getBoundingClientRect();
+        if (rect.bottom < -80 || rect.top > viewportH + 80) continue;
+
+        const cardCenter = rect.top + rect.height / 2;
+        const distance = cardCenter - viewportCenter;
+        const speed = 0.05 + (i % 3) * 0.015;
+        const offset = -distance * speed;
+        card.style.setProperty("--parallax-y", offset.toFixed(2) + "px");
+      }
+
+      ticking = false;
+    };
+
+    const onScroll = function () {
+      if (!ticking) {
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    updateParallax();
 
     if ("IntersectionObserver" in window) {
       const revealTargets = document.querySelectorAll(".reveal, .reveal-group");
       const io = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            io.unobserve(entry.target);
-          }
+          entry.target.classList.toggle("is-visible", entry.isIntersecting);
         });
-      }, { threshold: 0.15, rootMargin: "0px 0px -60px 0px" });
+      }, { threshold: 0.12, rootMargin: "0px 0px -80px 0px" });
       revealTargets.forEach(function (el) { io.observe(el); });
     } else {
       document.querySelectorAll(".reveal, .reveal-group").forEach(function (el) {
         el.classList.add("is-visible");
       });
     }
+  }
+
+  if ("IntersectionObserver" in window) {
+    const navLinks = Array.from(document.querySelectorAll(".nav a[href^='#']"));
+    const sectionMap = new Map();
+    navLinks.forEach(function (link) {
+      const id = link.getAttribute("href").slice(1);
+      const section = document.getElementById(id);
+      if (section) sectionMap.set(section, link);
+    });
+
+    const visible = new Set();
+
+    const spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) visible.add(entry.target);
+        else visible.delete(entry.target);
+      });
+
+      if (visible.size === 0) {
+        navLinks.forEach(function (l) { l.classList.remove("is-active"); });
+        return;
+      }
+
+      let topmost = null;
+      let topmostY = Infinity;
+      visible.forEach(function (section) {
+        const top = section.getBoundingClientRect().top;
+        if (top < topmostY) {
+          topmostY = top;
+          topmost = section;
+        }
+      });
+
+      const activeLink = sectionMap.get(topmost);
+      navLinks.forEach(function (l) {
+        l.classList.toggle("is-active", l === activeLink);
+      });
+    }, {
+      rootMargin: "-30% 0px -55% 0px",
+      threshold: 0
+    });
+
+    sectionMap.forEach(function (_link, section) { spy.observe(section); });
   }
 })();
