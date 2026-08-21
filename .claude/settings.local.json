@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:dmvdxn.github.io)",
+      "Bash(nslookup -type=A danielonyejiekwe.com ns67.domaincontrol.com)",
+      "Bash(curl -sI https://danielonyejiekwe.com --resolve danielonyejiekwe.com:443:185.199.108.153 --max-time 10 -k)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(git fetch *)"
+    ]
+  }
+}

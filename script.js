@@ -224,13 +224,13 @@
   if (!prefersReducedMotion) {
     const heroImg = document.querySelector(".hero-banner-img");
     const heroSection = document.querySelector(".hero-banner");
-    const parallaxCards = Array.from(document.querySelectorAll(".card"));
 
     let ticking = false;
 
+    // Cards deliberately have no parallax: they stay locked in their grid cell
+    // so two cards can never drift into each other.
     const updateParallax = function () {
       const viewportH = window.innerHeight;
-      const viewportCenter = viewportH / 2;
 
       if (heroImg && heroSection) {
         const rect = heroSection.getBoundingClientRect();
@@ -238,18 +238,6 @@
           const offset = rect.top * -0.35;
           heroImg.style.transform = "translate3d(0, " + offset + "px, 0) scale(1.08)";
         }
-      }
-
-      for (let i = 0; i < parallaxCards.length; i++) {
-        const card = parallaxCards[i];
-        const rect = card.getBoundingClientRect();
-        if (rect.bottom < -80 || rect.top > viewportH + 80) continue;
-
-        const cardCenter = rect.top + rect.height / 2;
-        const distance = cardCenter - viewportCenter;
-        const speed = 0.05 + (i % 3) * 0.015;
-        const offset = -distance * speed;
-        card.style.setProperty("--parallax-y", offset.toFixed(2) + "px");
       }
 
       ticking = false;

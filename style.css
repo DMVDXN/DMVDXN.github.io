@@ -1,40 +1,64 @@
 /* style.css */
+
+/* Urban Chic palette
+   #22223B  ink      — deepest tone
+   #4A4E69  slate    — moody mid purple
+   #9A8C98  mauve    — muted transitional grey
+   #C9ADA7  rose     — warm dusty accent
+   #F2E9E4  cream    — soft light tone
+*/
 :root {
-  --bg: #0a0e1f;
-  --panel: rgba(255, 255, 255, 0.06);
-  --panel-strong: rgba(255, 255, 255, 0.10);
-  --text: #e9efff;
-  --muted: rgba(233, 239, 255, 0.72);
-  --border: rgba(255, 255, 255, 0.12);
-  --shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  --ink: #22223B;
+  --slate: #4A4E69;
+  --mauve: #9A8C98;
+  --rose: #C9ADA7;
+  --cream: #F2E9E4;
+
+  --bg: var(--ink);
+  --panel: rgba(74, 78, 105, 0.55);
+  --panel-strong: rgba(74, 78, 105, 0.85);
+  --text: var(--cream);
+  /* neutral grey rather than dimmed cream, so dates and supporting copy sit
+     back instead of reading as warm off-white. Tuned to clear AA against the
+     lighter card panel (4.7:1), not just the page background (6.5:1). */
+  --muted: #ADA6AF;
+  --border: rgba(242, 233, 228, 0.14);
+  --shadow: 0 12px 30px rgba(16, 16, 30, 0.45);
   --radius: 16px;
   --max: 1080px;
 
-  --primary: #38bdf8;
-  --secondary: #f472b6;
-  --primary-soft: rgba(56, 189, 248, 0.16);
-  --secondary-soft: rgba(244, 114, 182, 0.16);
-  --primary-glow: rgba(56, 189, 248, 0.35);
-  --secondary-glow: rgba(244, 114, 182, 0.30);
-  --on-primary: #04121f;
+  --primary: var(--rose);
+  --secondary: var(--mauve);
+  --primary-soft: rgba(201, 173, 167, 0.16);
+  --secondary-soft: rgba(154, 140, 152, 0.20);
+  --on-primary: var(--ink);
+
+  --header-bg: rgba(34, 34, 59, 0.55);
+  --surface-tint: rgba(242, 233, 228, 0.03);
+  --scrim: rgba(34, 34, 59, 0.72);
+  --nav-panel: rgba(34, 34, 59, 0.97);
 }
 
 [data-theme="light"] {
-  --bg: #f6f8ff;
-  --panel: rgba(10, 20, 60, 0.06);
-  --panel-strong: rgba(10, 20, 60, 0.10);
-  --text: #0a1230;
-  --muted: rgba(10, 18, 48, 0.70);
-  --border: rgba(10, 18, 48, 0.14);
-  --shadow: 0 12px 30px rgba(10, 30, 80, 0.10);
+  --bg: var(--cream);
+  --panel: rgba(74, 78, 105, 0.07);
+  --panel-strong: rgba(74, 78, 105, 0.13);
+  --text: var(--ink);
+  --muted: rgba(34, 34, 59, 0.72);
+  --border: rgba(34, 34, 59, 0.14);
+  --shadow: 0 12px 30px rgba(74, 78, 105, 0.14);
 
-  --primary: #0284c7;
-  --secondary: #db2777;
-  --primary-soft: rgba(2, 132, 199, 0.12);
-  --secondary-soft: rgba(219, 39, 119, 0.12);
-  --primary-glow: rgba(2, 132, 199, 0.30);
-  --secondary-glow: rgba(219, 39, 119, 0.25);
-  --on-primary: #ffffff;
+  /* the deep tones become the accents when the ground is light */
+  --primary: var(--slate);
+  --secondary: #6F4E48;
+  --primary-soft: rgba(74, 78, 105, 0.12);
+  --secondary-soft: rgba(111, 78, 72, 0.12);
+  --on-primary: var(--cream);
+
+  --header-bg: rgba(242, 233, 228, 0.78);
+  --surface-tint: rgba(34, 34, 59, 0.03);
+  --scrim: rgba(34, 34, 59, 0.55);
+  --nav-panel: rgba(242, 233, 228, 0.97);
 }
 
 * { box-sizing: border-box; }
@@ -48,34 +72,6 @@ body {
   color: var(--text);
   line-height: 1.6;
   position: relative;
-}
-
-.bg-glow {
-  position: fixed;
-  inset: -30vh -30vw;
-  z-index: -1;
-  pointer-events: none;
-  background-image:
-    radial-gradient(900px 600px at 85% 10%, var(--secondary-glow), transparent 60%),
-    radial-gradient(900px 600px at -10% 30%, var(--primary-glow), transparent 60%),
-    radial-gradient(700px 500px at 50% 90%, var(--primary-glow), transparent 65%);
-  will-change: transform;
-  animation: glow-breathe 28s ease-in-out infinite alternate;
-}
-
-@keyframes glow-breathe {
-  0% {
-    transform: translate3d(-2%, -2%, 0) scale(1);
-    opacity: 0.92;
-  }
-  50% {
-    transform: translate3d(2%, 1%, 0) scale(1.06);
-    opacity: 1;
-  }
-  100% {
-    transform: translate3d(-1%, 3%, 0) scale(1.02);
-    opacity: 0.95;
-  }
 }
 
 a {
@@ -112,12 +108,10 @@ a:hover {
   position: sticky;
   top: 0;
   backdrop-filter: blur(14px);
-  background: rgba(0, 0, 0, 0.35);
+  background: var(--header-bg);
   border-bottom: 1px solid var(--border);
   z-index: 10;
 }
-
-[data-theme="light"] .site-header { background: rgba(255, 255, 255, 0.75); }
 
 .header-inner {
   display: flex;
@@ -141,12 +135,7 @@ a:hover {
   border-radius: 50%;
   overflow: hidden;
   background: var(--panel-strong);
-  border: 2px solid transparent;
-  background-image:
-    linear-gradient(var(--bg), var(--bg)),
-    linear-gradient(135deg, var(--primary), var(--secondary));
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
+  border: 2px solid var(--primary);
 }
 
 .logo img {
@@ -185,7 +174,7 @@ a:hover {
   bottom: 2px;
   height: 2px;
   border-radius: 2px;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  background: var(--primary);
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform 0.35s ease;
@@ -281,17 +270,7 @@ a:hover {
 .hero-banner-overlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.82) 0%,
-      rgba(0, 0, 0, 0.58) 28%,
-      rgba(0, 0, 0, 0.30) 42%,
-      rgba(0, 0, 0, 0.12) 58%,
-      rgba(0, 0, 0, 0.00) 100%
-    ),
-    radial-gradient(600px 400px at 20% 30%, var(--primary-glow), transparent 70%),
-    radial-gradient(500px 400px at 80% 80%, var(--secondary-glow), transparent 70%);
+  background: rgba(34, 34, 59, 0.72);
   display: flex;
   align-items: center;
 }
@@ -311,11 +290,11 @@ a:hover {
 .hero-banner-copy h1,
 .hero-banner-copy p,
 .hero-banner-copy a {
-  color: #ffffff;
+  color: var(--cream);
 }
 
 .hero-banner-copy p {
-  color: rgba(255, 255, 255, 0.86);
+  color: rgba(242, 233, 228, 0.86);
 }
 
 .hero-banner-copy h1 {
@@ -346,15 +325,14 @@ a:hover {
 .btn:hover { background: var(--panel-strong); }
 
 .btn.primary {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background: var(--primary);
   color: var(--on-primary);
   border-color: transparent;
   font-weight: 600;
 }
 
 .btn.primary:hover {
-  background: linear-gradient(135deg, var(--secondary), var(--primary));
-  filter: brightness(1.05);
+  background: var(--secondary);
 }
 
 .quick-links {
@@ -364,11 +342,11 @@ a:hover {
 }
 
 .quick-links a {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(242, 233, 228, 0.85);
 }
 
 .quick-links a:hover {
-  color: #ffffff;
+  color: var(--cream);
 }
 
 /* SECTIONS */
@@ -377,22 +355,14 @@ a:hover {
 .section.alt {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.02);
-}
-
-[data-theme="light"] .section.alt {
-  background: rgba(0, 0, 0, 0.02);
+  background: var(--surface-tint);
 }
 
 .section h2 {
   margin: 0 0 10px;
   font-size: 1.75rem;
   display: inline-block;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  color: var(--primary);
 }
 
 .section h2::after {
@@ -402,7 +372,7 @@ a:hover {
   height: 3px;
   margin-top: 6px;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  background: var(--primary);
 }
 
 .lead {
@@ -425,20 +395,19 @@ a:hover {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 18px;
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, translate 0.05s linear;
-  translate: 0 var(--parallax-y, 0px);
-  will-change: translate;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card:hover {
   border-color: var(--primary);
   transform: translateY(-3px);
-  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.30), 0 0 0 1px var(--primary-soft);
+  box-shadow: 0 16px 38px rgba(16, 16, 30, 0.40), 0 0 0 1px var(--primary-soft);
 }
 
 .project.clickable { cursor: pointer; }
 
 .about-grid,
+.timeline,
 .grid,
 .skills-grid,
 .contact-grid {
@@ -450,6 +419,15 @@ a:hover {
 .grid,
 .skills-grid,
 .contact-grid { grid-template-columns: repeat(3, 1fr); }
+
+/* EXPERIENCE TIMELINE
+   One role per row, newest first, so the cards read as a sequence instead of
+   sitting side by side as peers. The accent rail ties them into one spine. */
+.timeline { grid-template-columns: 1fr; }
+
+.timeline > .card {
+  border-left: 3px solid var(--primary);
+}
 
 .project-top {
   display: flex;
@@ -473,6 +451,14 @@ a:hover {
   white-space: nowrap;
   flex: 0 0 auto;
   font-weight: 600;
+}
+
+/* Dark mode: date pills go neutral grey. The palette's mauve reads pink at
+   pill size, which pulled attention to the dates over the role titles. */
+:root:not([data-theme="light"]) .tag {
+  color: var(--muted);
+  border-color: rgba(173, 166, 175, 0.42);
+  background: rgba(173, 166, 175, 0.10);
 }
 
 .chips {
@@ -533,7 +519,7 @@ a:hover {
 }
 
 .filter-btn.is-active {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  background: var(--primary);
   color: var(--on-primary);
   border-color: transparent;
   font-weight: 600;
@@ -552,7 +538,7 @@ a:hover {
 .modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: var(--scrim);
 }
 
 .modal-dialog {
@@ -661,20 +647,30 @@ a:hover {
   transform: translate(0, 0) scale(1);
 }
 
-/* staggered children inside a .reveal-group */
+/* Staggered children inside a .reveal-group.
+   Fade only — no transform. Cards stay locked in their grid cell at all times,
+   so two cards can never occupy the same space no matter how the stagger,
+   the scroll direction, or the number of cards line up. */
 .reveal-group > * {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.6s ease;
 }
 
-.reveal-group.is-visible > * { opacity: 1; transform: translateY(0); }
-.reveal-group.is-visible > *:nth-child(1) { transition-delay: 0.05s; }
-.reveal-group.is-visible > *:nth-child(2) { transition-delay: 0.15s; }
-.reveal-group.is-visible > *:nth-child(3) { transition-delay: 0.25s; }
-.reveal-group.is-visible > *:nth-child(4) { transition-delay: 0.35s; }
-.reveal-group.is-visible > *:nth-child(5) { transition-delay: 0.45s; }
-.reveal-group.is-visible > *:nth-child(6) { transition-delay: 0.55s; }
+.reveal-group.is-visible > * { opacity: 1; }
+
+/* Covers 10 children; the rest share the last step so a longer grid degrades
+   gracefully instead of popping in ahead of the cards above it. */
+.reveal-group.is-visible > *:nth-child(1)  { transition-delay: 0.05s; }
+.reveal-group.is-visible > *:nth-child(2)  { transition-delay: 0.10s; }
+.reveal-group.is-visible > *:nth-child(3)  { transition-delay: 0.15s; }
+.reveal-group.is-visible > *:nth-child(4)  { transition-delay: 0.20s; }
+.reveal-group.is-visible > *:nth-child(5)  { transition-delay: 0.25s; }
+.reveal-group.is-visible > *:nth-child(6)  { transition-delay: 0.30s; }
+.reveal-group.is-visible > *:nth-child(7)  { transition-delay: 0.35s; }
+.reveal-group.is-visible > *:nth-child(8)  { transition-delay: 0.40s; }
+.reveal-group.is-visible > *:nth-child(9)  { transition-delay: 0.45s; }
+.reveal-group.is-visible > *:nth-child(10) { transition-delay: 0.50s; }
+.reveal-group.is-visible > *:nth-child(n+11) { transition-delay: 0.55s; }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal,
@@ -684,8 +680,6 @@ a:hover {
     transition: none !important;
   }
   .hero-banner-img { transform: none !important; }
-  .card { translate: 0 0 !important; }
-  .bg-glow { transform: none !important; }
 }
 
 /* RESPONSIVE */
@@ -701,7 +695,7 @@ a:hover {
     align-items: stretch;
     gap: 4px;
     padding: 12px;
-    background: rgba(10, 14, 31, 0.96);
+    background: var(--nav-panel);
     backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border);
     box-shadow: var(--shadow);
@@ -709,10 +703,6 @@ a:hover {
     opacity: 0;
     pointer-events: none;
     transition: transform 0.25s ease, opacity 0.25s ease;
-  }
-
-  [data-theme="light"] .nav {
-    background: rgba(246, 248, 255, 0.96);
   }
 
   .nav.is-open {
