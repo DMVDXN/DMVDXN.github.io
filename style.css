@@ -1,14 +1,14 @@
 /* style.css */
 
 /* Noir Bordeaux palette
-   #000000  ink       — pitch black ground
+   #18181D  ink       — soft charcoal ground
    #7A1130  bordeaux  — rich burgundy accent
    #9C1C3F  claret    — burgundy hover tone
    #F5F5F5  chalk     — soft white touch
    #FFFFFF  paper     — pitch white ground (light theme)
 */
 :root {
-  --ink: #000000;
+  --ink: #18181D;
   --bordeaux: #7A1130;
   --claret: #9C1C3F;
   --chalk: #F5F5F5;
@@ -30,10 +30,10 @@
   --secondary-soft: rgba(245, 245, 245, 0.10);
   --on-primary: var(--chalk);
 
-  --header-bg: rgba(0, 0, 0, 0.55);
+  --header-bg: rgba(24, 24, 29, 0.78);
   --surface-tint: rgba(245, 245, 245, 0.03);
   --scrim: rgba(0, 0, 0, 0.72);
-  --nav-panel: rgba(0, 0, 0, 0.97);
+  --nav-panel: rgba(24, 24, 29, 0.97);
 }
 
 [data-theme="light"] {
@@ -267,7 +267,7 @@ a:hover {
 .hero-banner-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.72);
+  background: rgba(24, 24, 29, 0.70);
   display: flex;
   align-items: center;
 }
@@ -455,6 +455,8 @@ a:hover {
 
 .project p { color: var(--muted); }
 
+.publication .project-top { align-items: flex-start; }
+
 /* tag pill */
 .tag {
   font-size: 0.78rem;
@@ -484,7 +486,7 @@ a:hover {
   border-radius: 999px;
   border: 1px solid var(--primary);
   background: var(--primary-soft);
-  color: var(--primary);
+  color: var(--text);
   font-weight: 500;
 }
 
@@ -733,6 +735,87 @@ a:hover {
   .hero-banner-img { transform: none !important; }
 }
 
+/* CONTACT CARDS */
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.contact-icon {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--primary);
+  background: var(--primary-soft);
+  color: var(--text);
+  transition: background 0.25s ease;
+}
+
+.contact-icon svg { width: 22px; height: 22px; }
+
+.contact-card:hover .contact-icon { background: var(--primary); color: var(--on-primary); }
+
+.contact-text { min-width: 0; }
+.contact-text h3 { margin: 0 0 2px; }
+.contact-text p { margin: 0; overflow-wrap: anywhere; }
+
+/* CARD MEDIA
+   Photo or official logo that bleeds across the
+   top of grid cards and sits beside the text on full-width timeline cards. */
+.card-media {
+  margin: -18px -18px 14px;
+  height: 180px;
+  overflow: hidden;
+  border-radius: var(--radius) var(--radius) 0 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel-strong);
+}
+
+.card-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .card-media img { transform: scale(1.04); }
+
+/* organization logos: show the whole mark on white instead of cropping */
+.card-logo { background: #FFFFFF; }
+
+.card-logo img {
+  object-fit: contain;
+  padding: 18px;
+}
+
+.card:hover .card-logo img { transform: none; }
+
+.card-logo-dark { background: #000000; } /* matches the HAX Lab logo's own black ground */
+.card-logo-dark img { padding: 8px; }
+.card-logo-wide img { padding: 36px 56px; }
+
+.timeline > .card.has-media {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.timeline > .card.has-media .card-media {
+  margin: 0;
+  height: auto;
+  min-height: 180px;
+  border-radius: 12px;
+  border-bottom: none;
+}
+
+.card-body { min-width: 0; }
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .nav-toggle { display: block; }
@@ -776,6 +859,16 @@ a:hover {
   .skills-grid,
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .timeline > .card.has-media { grid-template-columns: 1fr; gap: 0; }
+
+  .timeline > .card.has-media .card-media {
+    margin: -18px -18px 14px;
+    min-height: 0;
+    height: 200px;
+    border-radius: var(--radius) var(--radius) 0 0;
+    border-bottom: 1px solid var(--border);
   }
 
   .hero-banner-img {
