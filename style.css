@@ -111,6 +111,7 @@ a:hover {
 }
 
 .header-inner {
+  max-width: 1240px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -123,6 +124,7 @@ a:hover {
   align-items: center;
   gap: 12px;
   min-width: 220px;
+  flex-shrink: 0;
 }
 
 .logo {
@@ -146,14 +148,15 @@ a:hover {
 .name { font-weight: 700; }
 
 .role {
-  font-size: 0.92rem;
+  font-size: 0.8rem;
   color: var(--primary);
   font-weight: 500;
+  white-space: nowrap;
 }
 
 .nav {
   display: flex;
-  gap: 14px;
+  gap: 2px;
 }
 
 .nav a {
@@ -406,7 +409,17 @@ a:hover {
   box-shadow: 0 16px 38px rgba(0, 0, 0, 0.40), 0 0 0 1px var(--primary-soft);
 }
 
-.project.clickable { cursor: pointer; }
+.project.clickable,
+.card.clickable { cursor: pointer; }
+
+.card-hint {
+  margin: 10px 0 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.card.clickable:hover .card-hint { color: var(--text); }
 
 .about-grid,
 .timeline,
@@ -454,6 +467,28 @@ a:hover {
 }
 
 .project p { color: var(--muted); }
+
+/* uniform project cards: title / date / description / skills / links.
+   Fallback pins links to the bottom; with subgrid every section lines up
+   across the cards in a row. */
+#projectsGrid > .project {
+  display: flex;
+  flex-direction: column;
+}
+
+#projectsGrid > .project > p:not(.meta) { flex: 1 0 auto; }
+
+@supports (grid-template-rows: subgrid) {
+  #projectsGrid > .project {
+    display: grid;
+    grid-row: span 5;
+    grid-template-rows: subgrid;
+    row-gap: 0;
+  }
+
+  #projectsGrid > .project > .chips { align-self: start; }
+  #projectsGrid > .project > .links { align-self: end; margin-top: 14px; }
+}
 
 .publication .project-top { align-items: flex-start; }
 
@@ -679,9 +714,12 @@ a:hover {
 .footer-inner {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 12px;
   color: var(--muted);
 }
+
+.footer-inner p { margin: 0; }
 
 /* SCROLL REVEAL ANIMATIONS */
 .reveal {
@@ -733,6 +771,103 @@ a:hover {
     transition: none !important;
   }
   .hero-banner-img { transform: none !important; }
+}
+
+/* GALLERY LIGHTBOX */
+.gallery-item img { cursor: zoom-in; }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+  background: rgba(10, 10, 12, 0.92);
+}
+
+.lightbox.is-open { display: flex; }
+
+.lightbox-figure {
+  margin: 0;
+  max-width: min(1100px, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.lightbox-figure img {
+  display: block;
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.lightbox-figure figcaption {
+  color: var(--chalk);
+  text-align: center;
+  font-size: 0.95rem;
+  max-width: 70ch;
+}
+
+.lightbox-figure figcaption a { color: var(--chalk); text-decoration: underline; }
+
+.lightbox-close,
+.lightbox-nav {
+  border: 1px solid rgba(245, 245, 245, 0.25);
+  background: rgba(245, 245, 245, 0.08);
+  color: var(--chalk);
+  cursor: pointer;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s ease;
+}
+
+.lightbox-close:hover,
+.lightbox-nav:hover { background: var(--primary); }
+
+.lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.lightbox-nav {
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+@media (max-width: 520px) {
+  .lightbox { padding: 64px 8px 24px; }
+  .lightbox-nav {
+    position: absolute;
+    bottom: 16px;
+  }
+  .lightbox-prev { left: calc(50% - 60px); }
+  .lightbox-next { right: calc(50% - 60px); }
+}
+
+/* PRESS: keep every "Read Article" button on the same baseline */
+#press .card {
+  display: flex;
+  flex-direction: column;
+}
+
+#press .card > .links {
+  margin-top: auto;
+  padding-top: 14px;
 }
 
 /* CONTACT CARDS */
@@ -817,7 +952,9 @@ a:hover {
 .card-body { min-width: 0; }
 
 /* RESPONSIVE */
-@media (max-width: 900px) {
+/* the full nav, name, and theme toggle need ~1200px on one row; collapse
+   into the menu button below that instead of letting them collide */
+@media (max-width: 1240px) {
   .nav-toggle { display: block; }
 
   .nav {
@@ -853,7 +990,9 @@ a:hover {
 
   .site-header { position: sticky; }
   .header-inner { position: relative; }
+}
 
+@media (max-width: 900px) {
   .about-grid,
   .grid,
   .skills-grid,

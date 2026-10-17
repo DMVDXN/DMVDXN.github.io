@@ -145,7 +145,8 @@
       if (modalImage) {
         modalImage.style.display = "block";
         modalImage.src = img;
-        modalImage.alt = title + " preview";
+        modalImage.alt = card.getAttribute("data-image-alt") || title + " preview";
+        modalImage.style.objectFit = card.getAttribute("data-image-fit") || "";
       }
     } else {
       if (modalMedia) modalMedia.style.display = "none";
@@ -160,8 +161,14 @@
       }
     }
 
-    modalRepo.href = repo;
-    modalDemo.href = demo;
+    // only show link buttons that point somewhere real
+    [[modalRepo, repo], [modalDemo, demo]].forEach(function (pair) {
+      const link = pair[0];
+      const href = pair[1];
+      if (!link) return;
+      link.href = href;
+      link.style.display = href && href !== "#" ? "" : "none";
+    });
 
     while (modalBullets.firstChild) modalBullets.removeChild(modalBullets.firstChild);
     bullets.split("|").map(function (s) { return s.trim(); }).filter(Boolean).forEach(function (item) {
@@ -190,7 +197,12 @@
     }
   }
 
-  projectCards.forEach(function (card) {
+  // project cards plus any other card marked clickable (e.g. education)
+  const modalCards = projectCards.concat(
+    Array.from(document.querySelectorAll(".card.clickable:not(.project)"))
+  );
+
+  modalCards.forEach(function (card) {
     card.setAttribute("tabindex", "0");
     card.addEventListener("click", function () {
       openModalFromCard(card);
@@ -311,5 +323,73 @@
     });
 
     sectionMap.forEach(function (_link, section) { spy.observe(section); });
+  }
+
+  // GALLERY LIGHTBOX: click (or Enter) a gallery photo to view it full size
+  const lightbox = document.getElementById("lightbox");
+  const galleryItems = Array.from(document.querySelectorAll(".gallery-item"));
+
+  if (lightbox && galleryItems.length) {
+    const lbImg = document.getElementById("lightboxImg");
+    const lbCaption = document.getElementById("lightboxCaption");
+    let lbIndex = 0;
+    let lbReturnFocus = null;
+
+    function showPhoto(i) {
+      lbIndex = (i + galleryItems.length) % galleryItems.length;
+      const item = galleryItems[lbIndex];
+      const img = item.querySelector("img");
+      const cap = item.querySelector("figcaption");
+      lbImg.src = img.getAttribute("src");
+      lbImg.alt = img.getAttribute("alt") || "";
+      lbCaption.innerHTML = cap ? cap.innerHTML : "";
+    }
+
+    function openLightbox(i) {
+      lbReturnFocus = document.activeElement;
+      showPhoto(i);
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      lightbox.querySelector(".lightbox-close").focus();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      lbImg.src = "";
+      if (lbReturnFocus && typeof lbReturnFocus.focus === "function") lbReturnFocus.focus();
+    }
+
+    galleryItems.forEach(function (item, i) {
+      const img = item.querySelector("img");
+      if (!img) return;
+      img.setAttribute("tabindex", "0");
+      img.setAttribute("role", "button");
+      img.addEventListener("click", function () { openLightbox(i); });
+      img.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openLightbox(i);
+        }
+      });
+    });
+
+    lightbox.querySelector(".lightbox-close").addEventListener("click", closeLightbox);
+    lightbox.querySelector(".lightbox-prev").addEventListener("click", function () { showPhoto(lbIndex - 1); });
+    lightbox.querySelector(".lightbox-next").addEventListener("click", function () { showPhoto(lbIndex + 1); });
+
+    // clicking the dark backdrop (not the photo or controls) closes it
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (!lightbox.classList.contains("is-open")) return;
+      if (e.key === "Escape") closeLightbox();
+      else if (e.key === "ArrowLeft") showPhoto(lbIndex - 1);
+      else if (e.key === "ArrowRight") showPhoto(lbIndex + 1);
+    });
   }
 })();
